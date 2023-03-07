@@ -1,0 +1,21 @@
+230307 화
+ - 
+ - 폰트패밀리 링크
+  @ https://fonts.google.com/specimen/Single+Day?preview.size=25&subset=korean&noto.script=Kore
+
+** 참고자료
+ - https://webisfree.com/2019-01-30/자바스크립트-자식-요소의-개수-구하기-childelementcount
+ - https://stickode.tistory.com/296
+ - 자바스크립트 공백 문자 넣기
+  @ https://databook.tistory.com/67
+ - input file 태그 관련
+  @ 파일 선택 버튼 커스터마이징
+      - https://helloinyong.tistory.com/275
+      - https://seungjuv.tistory.com/entry/HTML5-Input-file-기본-파일-업로드-버튼-제거-또는-커스텀-CSS
+ - 페이지를 pdf로 저장
+  @ https://velog.io/@badahertz52/element를-htmlpdfmarkdown-파일로-저장하기
+  @ https://lngnat.tistory.com/entry/자바스크립트-프린트-지정-영역-출력-windowprint-사용
+ - css로 특정영역만 프린트하기
+  @ https://ttowa.tistory.com/entry/CSS-페이지-내-특정-영역만-print프린트-하기
+ - css @page
+  @ https://developer.mozilla.org/ko/docs/Web/CSS/@page

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dongle&family=Gaegu&family=Nanum+Gothic:wght@700&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@500&family=Noto+Serif+KR:wght@500&family=Single+Day&display=swap"
+      rel="stylesheet"
+    />
+    <title>noteOut</title>
+  </head>
+  <body>
+    <header>
+      <div>
+        <div>1. 가져올 텍스트 파일을 선택(무적권 *.txt만)</div>
+        <div>2. 원하는 배경색, 글씨체, 글씨 크기를 설정</div>
+        <div>3. 직접 캡쳐 또는 PDF로 저장 클릭</div>
+        <div>4. 영당이는 바보다.</div>
+      </div>
+    </header>
+    <main>
+      <div id="selectbox">
+        <div class="sectionSet">
+          <label for="selectfile" id="selectfileLabel">파일 선택</label>
+          <input id="selectfile" type="file" onchange="readfile(this)" />
+        </div>
+        <div class="sectionSet">
+          <label for="selectBGcolor">배경색</label>
+          <input
+            type="color"
+            id="selectBGcolor"
+            onchange="changeBGColor(this.value)"
+          />
+        </div>
+        <div class="sectionSet">
+          <label for="selectfontstyle">글씨체</label>
+          <select
+            id="selectfontstyle"
+            onchange="changeFontFamily(this.value)"
+          ></select>
+        </div>
+        <div class="sectionSet">
+          <label for="selectfontsize">글씨 크기</label>
+          <select
+            id="selectfontsize"
+            onchange="changeFontSize(this.value)"
+          ></select>
+        </div>
+        <div class="sectionSet">
+          <button style="display: none">PNG로 저장</button>
+          <button onclick="printPDF()">PDF로 저장
+          </button>
+        </div>
+      </div>
+      <div id="textOutput"></div>
+    </main>
+    <script src="main.js"></script>
+  </body>
+</html>
