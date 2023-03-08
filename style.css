@@ -13,23 +13,35 @@ main {
     /* justify-content: center; */
 }
 
-label {
-    display: inline-block;
-    margin-right: 0.5rem;
-    min-width: 7rem;
+fieldset {
+    border: 0.4rem double lightblue;
+    padding-block: 0;
+    padding-top: 0.5rem;
+    max-height: 15.5rem;
     
-    line-height: 0.5rem;
 }
-label:before {
+fieldset label {
+    display: inline-block;
+    margin-right: 0.3rem;
+    min-width: 4rem;
+    
+    font-family: "Noto Sans KR", serif;
+    line-height: 0.3rem;
+}
+fieldset label:before {
     content: "";
     display: inline-block;
     width: 100%;
 }
-label:after {
+fieldset label:after {
     content: "";
     display: inline-block;
     width: 100%;
-    border-top: 2px solid black;
+    border-top: 0.15rem solid lightcoral;
+}
+
+legend {
+    font: 1.3rem "Noto Sans KR", serif;
 }
 
 button {
@@ -47,25 +59,28 @@ button:active {
     box-shadow: 0.01rem 0.01rem 0.3rem 0.05rem white inset;
 }
 
-#selectfileLabel {
-    border: solid 0 darkblue;
+hr {
+    margin-top: 1rem;
+    border-style: none;
+    border-top: 0.2rem dashed lightblue;
+}
+
+#selectFileLabel {
+    /* border: 0.2rem dotted darkblue; */
     box-shadow: 0.1rem 0.1rem 0.3rem 0.05rem grey;
+    background-color: lightblue;
 
-    background-color: rgba(240, 128, 128, 0.6);
-    font-weight: bolder;
-
-    min-width: 0%;
     padding: 0.4rem;
     cursor: pointer;
 }
-#selectfileLabel::after {
+#selectFileLabel::after {
     border: none;
 }
-#selectfileLabel:active {
-    background-color: rgba(240, 128, 128, 0.9);
+#selectFileLabel:active {
+    background-color: rgb(61, 61, 208, 0.5);
     box-shadow: 0.01rem 0.01rem 0.3rem 0.05rem white inset;
 }
-#selectfile {
+#selectFile {
     display: none;
 }
 
@@ -86,24 +101,40 @@ button:active {
     margin-right: 1.5rem;
     margin-bottom: 0.3rem;
 
-    border-bottom: 0.12rem solid grey;
-
+    border-bottom: 1.5px solid grey;
     /* font-weight: bolder; */
     font-size: 1rem;
-
 }
 
-#selectbox {
-    margin-left: 1rem;
-}
-.sectionSet {
+#selectBox {
     display: flex;
-    padding-bottom: 0.5rem;
-    min-height: 1.5rem;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
 }
-#selectfontsize {
+.selectProperty {
+    display: flex;
+    padding-bottom: 1rem;
+}
+#selectFontSize {
     min-width: 4rem;
 }
+
+#textBox {
+    /* display: flex; */
+    margin-left: 1rem;
+}
+#textBox button {
+    margin-right: 0.5rem;
+}
+.selectButton {
+    margin-bottom: 1rem;
+}
+
+#selectTextArea {
+    min-width: 490px;
+    min-height: 500px;
+}
+
 
 /* 특정영역만 프린트하기 */
 @page {
@@ -111,7 +142,7 @@ button:active {
     margin: 0;
 }
 @media print {
-    header, #selectbox {
+    header, #selectBox {
         display: none;
     }
     #textOutput {

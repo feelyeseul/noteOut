@@ -1,11 +1,11 @@
 // 선택한 파일의 텍스트 읽고 배열에 저장
-function readfile(input) {
+function readFile(input) {
   let file = input.files[0];
   let reader = new FileReader();
   reader.readAsText(file, "utf-8");
   reader.onload = () => {
     deleteAllDiv();
-    const arrResult = textSplit(reader.result);
+    const arrResult = reader.result.split("\r\n");
     createDivEachRow(arrResult);
     // sampleResult.textContent = JSON.stringify(arrResult);
   };
@@ -14,14 +14,16 @@ function readfile(input) {
     alert(reader.error);
   };
 }
-
-// text를 개행 기준으로 나누고 배열에 저장
-function textSplit(text) {
-  let rows = text.split("\r\n"); // 읽은 파일을 개행을 기준으로 나누고 빈 객체에 입력
-
-  console.log(rows);
-  return rows;
+// TextArea의 텍스트 읽고 배열에 저장
+function readTextArea() {
+  const textAreaContent = document.getElementById("selectTextArea").value;
+  
+  deleteAllDiv();
+  const arrResult = textAreaContent.split("\n"); // TextArea 내용을 개행을 기준으로 나누고 빈 객체에 입력
+  createDivEachRow(arrResult);
+  copyOriginProp();
 }
+
 
 // 배열 요소 개수 만큼 div 생성
 function createDivEachRow(array) {
@@ -53,9 +55,10 @@ function deleteAllDiv() {
   }
 }
 
+// ==============================Font 설정==============================
 // Font family List 생성
 function mkFontFamilyList() {
-  const fontFamily = document.getElementById("selectfontstyle");
+  const fontFamily = document.getElementById("selectFontStyle");
   const fontList = [
     "폰트 선택",
     "Dongle",
@@ -71,22 +74,9 @@ function mkFontFamilyList() {
     fontFamily.options[i] = new Option(fontList[i], fontList[i]);
   }
 }
-
-// Font family 설정
-function changeFontFamily(font) {
-  const textDiv = document.querySelectorAll(".innerText");
-
-  console.log(font);
-  if (font === "폰트 선택") {
-    textDiv.forEach((el) => (el.style.fontFamily = "serif"));
-  } else {
-    textDiv.forEach((el) => (el.style.fontFamily = font));
-  }
-}
-
 // Font size List 생성
 function mkFontSizeList() {
-    const fontSize = document.getElementById("selectfontsize");
+    const fontSize = document.getElementById("selectFontSize");
     let sizeList = [];
 
     for(let i = 10; i < 31; i++) {
@@ -98,14 +88,62 @@ function mkFontSizeList() {
       }
 }
 
+// Font family 설정
+function changeFontFamily(font) {
+  const textDiv = document.querySelectorAll(".innerText");
+  let fSize = document.getElementById("selectBorderSize").value;
+
+  console.log(font);
+  if (font === "폰트 선택") {
+    textDiv.forEach((f1) => (f1.style.fontFamily = "serif"));
+  } else {
+    textDiv.forEach((f1) => (f1.style.fontFamily = font));
+  }
+}
 // Font size 설정
 function changeFontSize(size) {
     const textDiv = document.querySelectorAll(".innerText");
   
     console.log(size);
-    textDiv.forEach((ele) => (ele.style.fontSize = `${size}px`));
+    textDiv.forEach((f2) => (f2.style.fontSize = `${size}px`));
+}
+// Font color 설정
+function changeFontColor(fColor) {
+  const textDiv = document.querySelectorAll(".innerText");
+  textDiv.forEach((f3) => f3.style.color = fColor);
 }
 
+// ==============================Border 설정==============================
+// Border Style List 생성
+function mkBorderStyleList() {
+  const borderStyle = document.getElementById("selectBorderStyle");
+  const borderList = [
+    "밑줄 선택",
+    "solid",
+    "dashed",
+    "dotted",
+    "double",
+  ];
+
+  for (let i in borderList) {
+    borderStyle.options[i] = new Option(borderList[i], borderList[i]);
+  }
+}
+// function changeBorder(bSize, bType, bColor) {
+function changeBorder() {  
+  const textDiv = document.querySelectorAll(".innerText");
+  let bSize = document.getElementById("selectBorderSize").value;
+  let bStyle = document.getElementById("selectBorderStyle").value;
+  let bColor = document.getElementById("selectBorderColor").value;
+  let bTrans = document.getElementById("selectBorderTrans").value;
+  const bTransHex = Number(bTrans).toString(16);
+  
+  console.log(`${bSize}px ${bStyle} ${bColor}${bTransHex}`);
+  
+  textDiv.forEach((b) => b.style.borderBottom = `${bSize}px ${bStyle} ${bColor}${bTransHex}`);
+}
+
+// ==============================BackGround 설정==============================
 // note 배경색 변경
 function changeBGColor(color) {
     console.log(color);
@@ -120,6 +158,17 @@ function printPDF() {
     }, 100);    
 }
 
+// 노트 만들기 버튼 누르면 기존 텍스트 속성 복사, 붙여넣기
+function copyOriginProp() {
+  let fontStyle = document.getElementById("selectFontStyle").value;
+  let fontSize = document.getElementById("selectFontSize").value;
+  let fontColor = document.getElementById("selectFontColor").value;
+
+  changeFontFamily(fontStyle);
+  changeFontSize(fontSize);
+  changeFontColor(fontColor);
+}
 
 mkFontFamilyList();
 mkFontSizeList();
+mkBorderStyleList();
