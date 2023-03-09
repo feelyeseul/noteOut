@@ -1,3 +1,18 @@
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    opacity: 0.15;
+    background-image: url("https://www.devsisters.com/static/cookierun-7361a127dadbc467835863e1274f6af2.jpg");
+    /* background-position-y: center; */
+    background-size: 50%;
+    z-index: -1;
+}
+
 header {
     margin: 1rem;
     padding-bottom: 0.5rem;
@@ -96,7 +111,7 @@ hr {
     background-color: lightgoldenrodyellow;
 }
 
-.innerText {
+.innerText, .innerText-edited {
     margin-left: 1.5rem;
     margin-right: 1.5rem;
     margin-bottom: 0.3rem;
@@ -133,6 +148,12 @@ hr {
 #selectTextArea {
     min-width: 490px;
     min-height: 500px;
+}
+
+.textEditBox {
+    min-width: 750px;
+    height: 50px;
+    margin-left: 1.5rem;
 }
 
 

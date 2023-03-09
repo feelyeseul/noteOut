@@ -16,7 +16,10 @@
   <body>
     <header>
       <div>
-        <div>1. 텍스트 파일 선택(무적권 *.txt만) or TextArea에 텍스트 입력 후 '노트 만들기' 버튼 클릭</div>
+        <div>
+          1. 텍스트 파일 선택(무적권 *.txt만) or TextArea에 텍스트 입력 후 '노트
+          만들기' 버튼 클릭
+        </div>
         <div>2. 원하는대로(말하는대로 아님) 배경, 글씨, 줄눈 속성 설정</div>
         <div>3. 직접 캡쳐 또는 PDF로 저장 클릭</div>
         <div>4. <del>영당이는 바보다.</del></div>
@@ -108,7 +111,7 @@
             <label for="selectFile" id="selectFileLabel">txt 파일 선택</label>
             <strong>&nbsp👈외부 파일을 가져오려면 '버튼'을 누르세요.</strong>
             <input id="selectFile" type="file" onchange="readFile(this)" />
-            <hr>
+            <hr />
           </div>
           <div class="selectButton">
             <button onclick="readTextArea()">노트 만들기</button>
@@ -119,8 +122,7 @@
             <label for="selectTextArea" style="display: none"
               >텍스트 입력</label
             >
-            <textarea id="selectTextArea" wrap="off" onchange="">
-이 곳은 TextArea 입니다.&#10출력하고 싶은 텍스트를 여기에 입력하세요.</textarea
+            <textarea id="selectTextArea" wrap="off" onchange="">이 곳은 TextArea 입니다.&#10출력하고 싶은 텍스트를 여기에 입력하세요.</textarea
             >
           </div>
         </section>
@@ -128,5 +130,6 @@
       <div id="textOutput"></div>
     </main>
     <script src="main.js"></script>
+    <script src="edit.js"></script>
   </body>
 </html>

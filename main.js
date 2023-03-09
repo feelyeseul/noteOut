@@ -132,15 +132,20 @@ function mkBorderStyleList() {
 // function changeBorder(bSize, bType, bColor) {
 function changeBorder() {  
   const textDiv = document.querySelectorAll(".innerText");
+  const textDivEdited = document.querySelectorAll(".innerText-edited");
   let bSize = document.getElementById("selectBorderSize").value;
   let bStyle = document.getElementById("selectBorderStyle").value;
   let bColor = document.getElementById("selectBorderColor").value;
   let bTrans = document.getElementById("selectBorderTrans").value;
+
+  if(bStyle === "밑줄 선택") {
+    bStyle = "solid";
+  }
   const bTransHex = Number(bTrans).toString(16);
   
   console.log(`${bSize}px ${bStyle} ${bColor}${bTransHex}`);
-  
   textDiv.forEach((b) => b.style.borderBottom = `${bSize}px ${bStyle} ${bColor}${bTransHex}`);
+  textDivEdited.forEach((b) => b.style.borderBottom = `${bSize}px ${bStyle} ${bColor}${bTransHex}`);
 }
 
 // ==============================BackGround 설정==============================
