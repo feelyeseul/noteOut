@@ -7,7 +7,7 @@ body::before {
     left: 0;
 
     opacity: 0.15;
-    background-image: url("https://www.devsisters.com/static/cookierun-7361a127dadbc467835863e1274f6af2.jpg");
+    background-image: url("main_bg.png");
     /* background-position-y: center; */
     background-size: 50%;
     z-index: -1;
@@ -130,7 +130,7 @@ hr {
     display: flex;
     padding-bottom: 1rem;
 }
-#selectFontSize {
+#selectFontSize, #selectFontSize_inner {
     min-width: 4rem;
 }
 
@@ -150,10 +150,28 @@ hr {
     min-height: 500px;
 }
 
-.textEditBox {
-    min-width: 750px;
-    height: 50px;
+
+
+#outerDiv {
     margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    padding: 0.2rem;
+
+    border: 0.2rem dashed lightblue;
+    background-color: rgb(254, 228, 228);
+}
+#fontDiv {
+    display: flex;
+    margin-bottom: 0.5rem;
+}
+.selectProperty_inner {
+    min-height: 1.5rem;
+    margin-right: 10px;
+}
+#reviewDiv {
+    padding: 10px;
+    margin-bottom: 0.5rem;
+    border: 3px double lightblue;
 }
 
 

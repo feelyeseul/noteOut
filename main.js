@@ -57,8 +57,7 @@ function deleteAllDiv() {
 
 // ==============================Font 설정==============================
 // Font family List 생성
-function mkFontFamilyList() {
-  const fontFamily = document.getElementById("selectFontStyle");
+function mkFontFamilyList(ffSelector) {
   const fontList = [
     "폰트 선택",
     "Dongle",
@@ -71,12 +70,11 @@ function mkFontFamilyList() {
   ];
 
   for (let i in fontList) {
-    fontFamily.options[i] = new Option(fontList[i], fontList[i]);
+    ffSelector.options[i] = new Option(fontList[i], fontList[i]);
   }
 }
 // Font size List 생성
-function mkFontSizeList() {
-    const fontSize = document.getElementById("selectFontSize");
+function mkFontSizeList(fsSelector) {
     let sizeList = [];
 
     for(let i = 10; i < 31; i++) {
@@ -84,7 +82,7 @@ function mkFontSizeList() {
     }
 
     for (let j in sizeList) {
-        fontSize.options[j] = new Option(sizeList[j], sizeList[j]);
+      fsSelector.options[j] = new Option(sizeList[j], sizeList[j]);
       }
 }
 
@@ -115,8 +113,7 @@ function changeFontColor(fColor) {
 
 // ==============================Border 설정==============================
 // Border Style List 생성
-function mkBorderStyleList() {
-  const borderStyle = document.getElementById("selectBorderStyle");
+function mkBorderStyleList(bsSelector) {
   const borderList = [
     "밑줄 선택",
     "solid",
@@ -126,7 +123,7 @@ function mkBorderStyleList() {
   ];
 
   for (let i in borderList) {
-    borderStyle.options[i] = new Option(borderList[i], borderList[i]);
+    bsSelector.options[i] = new Option(borderList[i], borderList[i]);
   }
 }
 // function changeBorder(bSize, bType, bColor) {
@@ -174,6 +171,13 @@ function copyOriginProp() {
   changeFontColor(fontColor);
 }
 
-mkFontFamilyList();
-mkFontSizeList();
-mkBorderStyleList();
+window.onload = () => {
+  const fontFamily = document.getElementById("selectFontStyle");
+  const fontSize = document.getElementById("selectFontSize");
+  const borderStyle = document.getElementById("selectBorderStyle");
+
+  mkFontFamilyList(fontFamily);
+  mkFontSizeList(fontSize);
+  mkBorderStyleList(borderStyle);
+}
+
